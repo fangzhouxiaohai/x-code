@@ -50,7 +50,5 @@ jobs:
         if: startsWith(github.ref, 'refs/tags/v')
         uses: softprops/action-gh-release@v2
         with:
-          files: |
-            release/*.exe
-            release/*.dmg
+          files: ${{ matrix.os == 'windows-latest' && 'release/*.exe' || 'release/*.dmg' }}
           fail_on_unmatched_files: true
