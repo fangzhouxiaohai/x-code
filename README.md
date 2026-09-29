@@ -90,6 +90,15 @@ scripts/           dev.mjs（开发编排）、make-icon.cjs（图标离屏渲�
 build/icon.png     应用图标（npm run icon 生成）
 ```
 
+## 📮 联系作者 / Contact
+
+- 邮箱 / Email：**24519660@qq.com**
+- 微信 / WeChat：扫码添加好友
+
+<p align="center">
+  <img src="docs/wechat-qrcode.jpg" width="260" alt="微信二维码" />
+</p>
+
 ## 📄 许可
 
 MIT（见 [LICENSE](./LICENSE)）
