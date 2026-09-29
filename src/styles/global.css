@@ -1,0 +1,235 @@
+@import 'tailwindcss';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  font-family:
+    -apple-system, BlinkMacSystemFont, 'Segoe UI Variable Display', 'Segoe UI', 'Helvetica Neue',
+    'PingFang SC', 'Microsoft YaHei', sans-serif;
+  --font-mono: ui-monospace, 'SF Mono', 'Cascadia Code', Consolas, Menlo, monospace;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+
+/* ------- window drag regions (frameless window) ------- */
+.app-drag {
+  -webkit-app-region: drag;
+}
+.app-drag button,
+.no-drag,
+textarea,
+input,
+select {
+  -webkit-app-region: no-drag;
+}
+
+/* ------- slim scrollbars, like the ChatGPT app ------- */
+.scroll-thin {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
+}
+.dark .scroll-thin,
+html.dark .scroll-thin {
+  scrollbar-color: rgba(255, 255, 255, 0.22) transparent;
+}
+.scroll-thin::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+.scroll-thin::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.18);
+  border-radius: 8px;
+}
+html.dark .scroll-thin::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+}
+.scroll-thin::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* ------- streaming caret ------- */
+.streaming > :last-child::after {
+  content: '●';
+  display: inline-block;
+  margin-left: 2px;
+  font-size: 12px;
+  vertical-align: baseline;
+  animation: caret 0.9s ease-in-out infinite;
+  color: currentColor;
+}
+@keyframes caret {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.15;
+  }
+}
+
+.spark {
+  display: inline-block;
+  animation: spark 1.2s ease-in-out infinite;
+  color: #8f8f8f;
+}
+html.dark .spark {
+  color: #9b9b9b;
+}
+@keyframes spark {
+  0%,
+  100% {
+    transform: scale(0.9);
+    opacity: 0.6;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 1;
+  }
+}
+
+/* ------- markdown, styled after chatgpt.com ------- */
+.markdown {
+  overflow-wrap: anywhere;
+}
+.markdown > *:first-child {
+  margin-top: 0;
+}
+.markdown > *:last-child {
+  margin-bottom: 0;
+}
+.markdown p {
+  margin: 0.75rem 0;
+}
+.markdown h1,
+.markdown h2,
+.markdown h3,
+.markdown h4 {
+  margin: 1.6rem 0 0.75rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+.markdown h1 {
+  font-size: 1.5em;
+}
+.markdown h2 {
+  font-size: 1.3em;
+}
+.markdown h3 {
+  font-size: 1.12em;
+}
+.markdown ul,
+.markdown ol {
+  margin: 0.75rem 0;
+  padding-left: 1.6rem;
+}
+.markdown ul {
+  list-style: disc;
+}
+.markdown ol {
+  list-style: decimal;
+}
+.markdown li {
+  margin: 0.35rem 0;
+}
+.markdown li::marker {
+  color: #8f8f8f;
+}
+.markdown strong {
+  font-weight: 600;
+}
+.markdown em {
+  font-style: italic;
+}
+.markdown a {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.markdown blockquote {
+  margin: 1rem 0;
+  border-left: 3px solid rgba(0, 0, 0, 0.2);
+  padding: 0.1rem 0 0.1rem 1rem;
+  color: #5d5d5d;
+}
+html.dark .markdown blockquote {
+  border-color: rgba(255, 255, 255, 0.25);
+  color: #b4b4b4;
+}
+.markdown hr {
+  margin: 1.5rem 0;
+  border: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+html.dark .markdown hr {
+  border-color: rgba(255, 255, 255, 0.12);
+}
+.markdown code {
+  font-family: var(--font-mono);
+  font-size: 0.85em;
+}
+.markdown :not(pre) > code {
+  background: rgba(0, 0, 0, 0.06);
+  border-radius: 6px;
+  padding: 0.15em 0.4em;
+}
+html.dark .markdown :not(pre) > code {
+  background: rgba(255, 255, 255, 0.1);
+}
+.markdown pre {
+  margin: 1rem 0;
+  overflow-x: auto;
+  border-radius: 14px;
+  background: #f6f8fa;
+  padding: 14px 18px;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+html.dark .markdown pre {
+  background: #0d0d0d;
+  border-color: rgba(255, 255, 255, 0.1);
+}
+.markdown pre code {
+  font-size: 13px;
+  line-height: 1.65;
+  background: none;
+  padding: 0;
+}
+.markdown table {
+  margin: 1rem 0;
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92em;
+  display: block;
+  overflow-x: auto;
+}
+.markdown th,
+.markdown td {
+  border: 1px solid rgba(0, 0, 0, 0.14);
+  padding: 0.5rem 0.8rem;
+  text-align: left;
+}
+html.dark .markdown th,
+html.dark .markdown td {
+  border-color: rgba(255, 255, 255, 0.16);
+}
+.markdown th {
+  background: rgba(0, 0, 0, 0.035);
+  font-weight: 600;
+}
+html.dark .markdown th {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+/* selection */
+::selection {
+  background: rgba(13, 13, 13, 0.85);
+  color: #fff;
+}
+html.dark ::selection {
+  background: rgba(236, 236, 236, 0.85);
+  color: #0d0d0d;
+}
