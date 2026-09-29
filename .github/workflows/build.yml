@@ -11,6 +11,7 @@ permissions:
 jobs:
   build:
     strategy:
+      fail-fast: false
       matrix:
         os: [windows-latest, macos-latest]
     runs-on: ${{ matrix.os }}
@@ -32,7 +33,9 @@ jobs:
         with:
           timeout_minutes: 25
           max_attempts: 3
-          command: npx electron-builder --${{ matrix.os == 'windows-latest' && 'win' || 'mac' }}
+          # --publish never: the Release upload below (softprops) handles publishing;
+          # electron-builder itself would otherwise demand GH_TOKEN on tag builds.
+          command: npx electron-builder --${{ matrix.os == 'windows-latest' && 'win' || 'mac' }} --publish never
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
