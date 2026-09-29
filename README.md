@@ -1,16 +1,23 @@
-# X-Code — ChatGPT 桌面版复刻（Windows & macOS · 免费开源）
+<p align="center">
+  <img src="build/icon.png" width="128" alt="X-Code" />
+</p>
 
-一个使用 **Electron + React + TypeScript + Tailwind CSS** 构建的 ChatGPT 桌面应用复刻版，
-尽可能 1:1 还原官方桌面客户端的界面与交互，原生支持 Windows 与 macOS。
-应用以 **X-Code** 为名，配有仿 ChatGPT 花瓣风格设计的原创「六瓣结」LOGO 与应用图标。
+<h1 align="center">X-Code</h1>
 
-**免费开源，无需登录**：不内置任何账号体系，所有数据保存在本机。
-通过「模型供应商」功能接入你自己的模型——支持主流云厂商与本地 llama.cpp / Ollama / LM Studio。
+<p align="center">
+  免费开源的 AI 对话桌面应用 · Windows & macOS<br/>
+  Electron + React + TypeScript + Tailwind CSS
+</p>
 
-![platform](https://img.shields.io/badge/platform-Windows%20%7C%20macOS-blue)
-![license](https://img.shields.io/badge/license-MIT-green)
+<p align="center">
+  <img src="https://img.shields.io/badge/platform-Windows%20%7C%20macOS-blue" alt="platform" />
+  <img src="https://img.shields.io/badge/license-MIT-green" alt="license" />
+</p>
 
-## ✨ 界面还原
+**无需登录，数据全部保存在本机。** 通过「模型供应商」接入你自己的模型：
+支持主流云厂商与本地 llama.cpp / Ollama / LM Studio，也内置离线演示模型，零配置即可上手。
+
+## ✨ 功能
 
 | 模块 | 说明 |
 | --- | --- |
@@ -38,9 +45,8 @@
 启用开关、随时删除；流式输出支持中途「停止」，请求失败会把错误信息显示在对话里。
 API Key 仅保存在本机浏览器存储，不会上传。
 
-> 未配置任何供应商时，应用使用**离线演示模型**（本地模拟流式回复，中英文关键词匹配），
-> 无需任何配置即可体验完整交互。开发时可用 `node scripts/mock-llm-server.mjs`
-> 起一个本地 OpenAI 兼容 SSE 服务（`:9911/v1`）做端到端联调。
+> 未配置任何供应商时，应用使用**离线演示模型**（本地模拟流式回复）。
+> 开发时可用 `node scripts/mock-llm-server.mjs` 起一个本地 OpenAI 兼容 SSE 服务（`:9911/v1`）做端到端联调。
 
 ## 🚀 开发运行
 
@@ -54,10 +60,9 @@ npm run dev        # 启动 Vite 开发服务器 + Electron 窗口（热更新�
 
 ## 🎨 LOGO 与应用图标
 
-`src/components/icons.tsx` 中的 `XCodeLogo` 是仿 ChatGPT 花瓣标志设计的原创几何
-「六瓣结」图形（六个圆角臂旋转互锁）。应用图标由 `npm run icon` 通过 Electron
-离屏渲染自动生成为 `build/icon.png`（512×512、透明圆角、深色底），
-electron-builder 会自动转换为 Windows `.ico` 与 macOS `.icns`。
+`src/components/icons.tsx` 中的 `XCodeLogo` 是原创几何「六瓣结」图形（六个圆角臂旋转互锁）。
+应用图标由 `npm run icon` 通过 Electron 离屏渲染自动生成为 `build/icon.png`
+（512×512、透明圆角、深色底），electron-builder 会自动转换为 Windows `.ico` 与 macOS `.icns`。
 
 ## 📦 打包分发
 
@@ -67,7 +72,7 @@ npm run dist:mac   # macOS：DMG（x64 + arm64）→ release/*.dmg（需在 macO
 ```
 
 macOS 打包需在 macOS 机器（或 CI）上执行；本项目附带 GitHub Actions 工作流，
-push 后在 Windows 与 macOS 双平台自动构建并上传安装包（`.github/workflows/build.yml`）。
+push `v*` 标签后在 Windows 与 macOS 双平台自动构建，并把安装包附加到对应的 GitHub Release。
 
 ## 🗂 目录结构
 
@@ -87,4 +92,4 @@ build/icon.png     应用图标（npm run icon 生成）
 
 ## 📄 许可
 
-MIT（见 [LICENSE](./LICENSE)）。本项目与 OpenAI 无关；「ChatGPT」及相关标识的权利归属其各自所有者。
+MIT（见 [LICENSE](./LICENSE)）

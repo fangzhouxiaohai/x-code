@@ -2,7 +2,7 @@
   "name": "x-code",
   "productName": "X-Code",
   "version": "1.0.0",
-  "description": "A pixel-faithful replica of the ChatGPT desktop app for Windows & macOS",
+  "description": "X-Code — free & open-source AI chat desktop app for Windows and macOS",
   "private": true,
   "main": "electron/main.cjs",
   "author": "clone",

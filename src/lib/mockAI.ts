@@ -34,12 +34,12 @@ Just ask away!`,
   },
   {
     keywords: ['你是谁', 'who are you', '你叫什么', '介绍', 'about you'],
-    zh: `我是 **ChatGPT**，一个由 AI 驱动的对话助手。这个桌面应用是它的复刻版本——界面、交互和快捷键都尽量与原版一致。
+    zh: `我是 **X-Code** 桌面应用内置的演示助手——一个免费开源、无需登录的本地 AI 对话客户端。
 
-我可以帮你思考、写作、编程、学习新东西，或者只是陪你聊天。当前对话完全保存在本地，随时可以搜索、重命名或删除。`,
-    en: `I'm **ChatGPT**, an AI-powered assistant. What you're using right now is a faithful desktop replica of the official app — same layout, interactions, and shortcuts.
+我可以帮你思考、写作、编程、学习新东西，或者只是陪你聊天。当前对话完全保存在本地，随时可以搜索、重命名或删除。在「设置 → 模型供应商」里接入真实模型后，回答会由你选择的模型生成。`,
+    en: `I'm the built-in demo assistant of **X-Code** — a free, open-source desktop AI chat client that needs no login.
 
-I can help you think, write, code, and learn. Everything here is stored locally, so you can search, rename, or delete any chat at any time.`,
+I can help you think, write, code, and learn. Everything here is stored locally, so you can search, rename, or delete any chat at any time. Connect a real model in Settings → Model providers to get answers from your own model.`,
   },
   {
     keywords: ['代码', 'code', 'react', '组件', 'component', '写个', '编程'],
